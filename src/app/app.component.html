@@ -1,0 +1,27 @@
+<main>
+  <app-learning-resources />
+
+  <hr />
+
+  <app-auth />
+
+  <!-- @if(isAdmin())
+  {
+    <p>Only Admin should see this secret message</p>
+  }
+   -->
+<!-- 
+  <p *ngIf="isAdmin() else fallback" >Only Admin should see this secret message</p>
+  <ng-template #fallback>
+    <p>Users</p>
+  </ng-template> -->
+  <!-- <ng-template appAuth = "admin">
+     <p>Only Admin should see this secret message</p>
+  </ng-template> -->
+
+  
+  <p *appAuth="'admin'" class="protected-content admin">Only Admin should see this secret message</p>
+  <p *appAuth="'user'" class="protected-content unauthenticated">Regular used should see this</p>
+  <p *appAuth="'guest'" class="protected-content authenticated">Guest users should see this</p>
+ 
+</main>
